@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import React, { Component } from "react";
+import Button from "react-bootstrap/Button";
+import Profile from "./components/Profile";
+export default class App extends Component {
+  state = {
+    show: false,
+  };
+
+  render() {
+    return (
+      <div>
+        <Button
+          variant="outline-dark"
+          onClick={() => this.setState({ show: !this.state.show })}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          Show profile
+        </Button>
+        {this.state.show ? <Profile /> : null}
+      </div>
+    );
+  }
 }
-
-export default App;
